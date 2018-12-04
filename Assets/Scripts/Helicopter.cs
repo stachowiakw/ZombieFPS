@@ -5,10 +5,12 @@ using UnityEngine;
 public class Helicopter : MonoBehaviour {
     bool HeliCalled;
     public TerrainScaner terrainScaner;
+    private Rigidbody heliRigidBody;
 
     // Use this for initialization
     void Start() {
         HeliCalled = false;
+        heliRigidBody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -26,6 +28,7 @@ public class Helicopter : MonoBehaviour {
     void HeliInbound()
         {
             HeliCalled = true;
+            heliRigidBody.velocity = new Vector3(0, 0, -50f);
             print("Helicopter called");
         }
 
